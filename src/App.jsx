@@ -1,9 +1,12 @@
+import Sidebar from './components/SideBar';
+
 function App() {
-  return (
-    <>
-      <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
-    </>
-  );
+	return (
+		<main className="grid grid-cols-[350px_1fr] grid-rows-1 gap-4 py-10 h-screen">
+			<Sidebar />
+			<div>Hello to you too</div>
+		</main>
+	);
 }
 
 export default App;
