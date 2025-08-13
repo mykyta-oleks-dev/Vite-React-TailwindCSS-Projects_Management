@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button';
 
-const TaskForm = ({ onSave }) => {
+const TaskForm = ({ onAdd }) => {
 	const [task, setTask] = useState('');
 
 	const handleChange = (e) => {
@@ -9,7 +9,7 @@ const TaskForm = ({ onSave }) => {
 	};
 
 	const handleClick = () => {
-		onSave(task);
+		onAdd(task);
 		setTask('');
 	};
 
@@ -21,7 +21,7 @@ const TaskForm = ({ onSave }) => {
 				type="text"
 				className="w-64"
 			/>
-			<Button type="solid">Add Task</Button>
+			<Button type="solid" onClick={handleClick}>Add Task</Button>
 		</div>
 	);
 };

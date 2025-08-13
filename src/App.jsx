@@ -4,12 +4,14 @@ import ProjectForm from './components/ProjectForm';
 import Sidebar from './components/SideBar';
 import ProjectInfo from './components/details/ProjectInfo';
 
-let nextId = 0;
+let nextProjectId = 1;
+let nextTaskId = 1;
 
 function App() {
 	const [projectsState, setProjectsState] = useState({
 		selectedProjectId: undefined,
 		projects: [],
+		tasks: [],
 	});
 
 	const handleNewProject = () => {
@@ -39,16 +41,15 @@ function App() {
 			projects: [
 				...state.projects,
 				{
-					id: nextId,
+					id: nextProjectId,
 					title,
 					description,
 					dueDate,
-					tasks: [],
 				},
 			],
-			selectedProjectId: nextId,
+			selectedProjectId: nextProjectId,
 		}));
-		nextId++;
+		nextProjectId++;
 	};
 
 	const handleRemoveProject = (id) => {
@@ -56,6 +57,28 @@ function App() {
 			...state,
 			projects: state.projects.filter((p) => p.id !== id),
 			selectedProjectId: undefined,
+		}));
+	};
+
+	const handleAddTask = (content) => {
+		setProjectsState((state) => ({
+			...state,
+			tasks: [
+				...state.tasks,
+				{
+					id: nextTaskId,
+					projectId: state.selectedProjectId,
+					content,
+				},
+			],
+		}));
+		nextTaskId++;
+	};
+
+	const handleRemoveTask = (id) => {
+		setProjectsState((state) => ({
+			...state,
+			tasks: state.tasks.filter((t) => t.id !== id),
 		}));
 	};
 
@@ -72,7 +95,12 @@ function App() {
 					project={projectsState.projects.find(
 						(p) => p.id === projectsState.selectedProjectId
 					)}
+					tasks={projectsState.tasks.filter(
+						(t) => t.projectId === projectsState.selectedProjectId
+					)}
 					onDelete={handleRemoveProject}
+					onAddTask={handleAddTask}
+					onDeleteTask={handleRemoveTask}
 				/>
 			)}
 			{projectsState.selectedProjectId === null && (

@@ -1,4 +1,4 @@
-const Button = ({ children, type, selected, ...props }) => {
+const Button = ({ children, type, selected, danger, ...props }) => {
 	return (
 		<button
 			{...props}
@@ -6,7 +6,7 @@ const Button = ({ children, type, selected, ...props }) => {
 			className={`py-2 px-6 transition rounded cursor-pointer ${setClasses(
 				type,
 				selected
-			)}`}
+			)} ${danger ? 'danger' : ''}`}
 		>
 			{children}
 		</button>
