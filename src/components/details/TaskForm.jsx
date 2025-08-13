@@ -5,10 +5,11 @@ const TaskForm = ({ onAdd }) => {
 	const [task, setTask] = useState('');
 
 	const handleChange = (e) => {
-		setTask(e.target.value);
+		setTask(e.target.value.trim());
 	};
 
 	const handleClick = () => {
+		if (!task) return;
 		onAdd(task);
 		setTask('');
 	};
@@ -21,7 +22,9 @@ const TaskForm = ({ onAdd }) => {
 				type="text"
 				className="w-64"
 			/>
-			<Button type="solid" onClick={handleClick}>Add Task</Button>
+			<Button type="solid" onClick={handleClick}>
+				Add Task
+			</Button>
 		</div>
 	);
 };
