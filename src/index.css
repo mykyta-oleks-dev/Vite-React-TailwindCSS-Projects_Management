@@ -9,7 +9,7 @@ div#root {
 }
 
 .light {
-	@apply text-stone-900 bg-transparent;
+	@apply text-stone-900 bg-stone-200;
 }
 
 button.dark {
@@ -17,5 +17,5 @@ button.dark {
 }
 
 button.light {
-	@apply hover:underline;
+	@apply hover:bg-stone-300;
 }
