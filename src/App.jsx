@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NoProject from './components/NoProject';
 import ProjectForm from './components/ProjectForm';
-import Sidebar from './components/SideBar';
+import Sidebar from './components/Sidebar';
 import ProjectInfo from './components/details/ProjectInfo';
 
 let nextProjectId = 1;
