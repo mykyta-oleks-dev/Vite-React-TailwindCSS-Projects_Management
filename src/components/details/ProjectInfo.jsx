@@ -1,6 +1,15 @@
-import Button from './Button';
+import Button from '../Button';
+import Tasks from './Tasks';
 
 const ProjectInfo = ({ project, onDelete }) => {
+	const formattedDate = new Date(project.dueDate).toLocaleDateString(
+		'en-US',
+		{
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		}
+	);
 	return (
 		<div className="flex flex-col gap-2">
 			<div className="flex items-center">
@@ -9,12 +18,10 @@ const ProjectInfo = ({ project, onDelete }) => {
 					Delete
 				</Button>
 			</div>
-			<p className="text-stone-500 font-medium">
-				{project.dueDate.toDateString()}
-			</p>
-			<p>{project.description}</p>
+			<p className="text-stone-500 font-medium">{formattedDate}</p>
+			<p className="my-4">{project.description}</p>
 			<hr />
-			<h3 className="text-xl font-medium">Tasks</h3>
+			<Tasks tasks={project.tasks} />
 		</div>
 	);
 };

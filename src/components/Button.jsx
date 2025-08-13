@@ -1,10 +1,11 @@
-const Button = ({ children, type, ...props }) => {
+const Button = ({ children, type, selected, ...props }) => {
 	return (
 		<button
 			{...props}
 			type="button"
 			className={`py-2 px-6 transition rounded cursor-pointer ${setClasses(
-				type
+				type,
+				selected
 			)}`}
 		>
 			{children}
@@ -12,11 +13,13 @@ const Button = ({ children, type, ...props }) => {
 	);
 };
 
-const setClasses = (type) => {
+const setClasses = (type, selected) => {
 	if (type === 'solid') return 'dark';
 	if (type === 'ghost') return 'light';
 	if (type === 'list-item')
-		return 'bg-stone-800 w-full text-start hover:bg-stone-600 text-stone-50';
+		return `w-full text-start ${
+			selected ? 'bg-stone-700' : 'bg-stone-800'
+		} hover:bg-stone-600 text-stone-50`;
 	return 'text-stone-100 bg-stone-700 hover:bg-stone-600';
 };
 

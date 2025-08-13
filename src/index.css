@@ -19,3 +19,7 @@ button.dark {
 button.light {
 	@apply hover:bg-stone-300;
 }
+
+input, textarea {
+	@apply bg-stone-300 p-2 border-b-3 border-b-stone-400 focus:border-b-stone-900 transition outline-none;
+}

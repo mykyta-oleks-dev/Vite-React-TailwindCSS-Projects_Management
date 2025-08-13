@@ -8,12 +8,7 @@ const Input = ({ label, textarea, id, ...props }) => {
 			>
 				{label}
 			</label>
-			<Tag
-				{...props}
-				id={id}
-				name={id}
-				className="bg-stone-300 w-full p-2 border-b-3 border-b-stone-400 focus:border-b-stone-900 transition outline-none"
-			/>
+			<Tag {...props} id={id} name={id} className="w-full" />
 		</div>
 	);
 };

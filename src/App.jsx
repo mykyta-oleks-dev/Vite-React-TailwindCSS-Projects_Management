@@ -2,7 +2,7 @@ import { useState } from 'react';
 import NoProject from './components/NoProject';
 import ProjectForm from './components/ProjectForm';
 import Sidebar from './components/SideBar';
-import ProjectInfo from './components/ProjectInfo';
+import ProjectInfo from './components/details/ProjectInfo';
 
 let nextId = 0;
 
@@ -43,6 +43,7 @@ function App() {
 					title,
 					description,
 					dueDate,
+					tasks: [],
 				},
 			],
 			selectedProjectId: nextId,
@@ -64,6 +65,7 @@ function App() {
 				onNewProject={handleNewProject}
 				projects={projectsState.projects}
 				onSelect={handleSelectProject}
+				selectedProjectId={projectsState.selectedProjectId}
 			/>
 			{projectsState.selectedProjectId && (
 				<ProjectInfo
