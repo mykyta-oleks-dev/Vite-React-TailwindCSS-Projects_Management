@@ -1,7 +1,7 @@
 import noProjectImg from '../assets/no-projects.png';
 import Button from './Button';
 
-const NoProject = () => {
+const NoProject = ({ onNewProject }) => {
 	return (
 		<div className="flex flex-col items-center py-10 gap-10">
 			<img src={noProjectImg} alt="no-projects" className="size-20" />
@@ -11,7 +11,7 @@ const NoProject = () => {
 			<p className="text-stone-600">
 				Select project or get started with a new one
 			</p>
-			<Button>Create New Project</Button>
+			<Button onClick={onNewProject}>Create New Project</Button>
 		</div>
 	);
 };

@@ -3,3 +3,19 @@
 div#root {
 	min-height: 100vh;
 }
+
+.dark {
+	@apply bg-stone-900 text-stone-50;
+}
+
+.light {
+	@apply text-stone-900 bg-transparent;
+}
+
+button.dark {
+	@apply hover:bg-stone-800;
+}
+
+button.light {
+	@apply hover:underline;
+}

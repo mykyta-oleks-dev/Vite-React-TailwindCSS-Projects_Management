@@ -3,7 +3,7 @@ const Button = ({ children, type, ...props }) => {
 		<button
 			{...props}
 			type="button"
-			className={`py-2 px-6 rounded cursor-pointer ${setClasses(type)}`}
+			className={`py-2 px-6 transition rounded cursor-pointer ${setClasses(type)}`}
 		>
 			{children}
 		</button>
@@ -11,9 +11,9 @@ const Button = ({ children, type, ...props }) => {
 };
 
 const setClasses = (type) => {
-	if (type === 'solid') return 'text-white bg-black';
-	if (type === 'ghost') return 'text-black bg-transparent';
-	return 'text-stone-300 bg-stone-800';
+	if (type === 'solid') return 'dark';
+	if (type === 'ghost') return 'light';
+	return 'text-stone-100 bg-stone-700 hover:bg-stone-600';
 };
 
 export default Button;
